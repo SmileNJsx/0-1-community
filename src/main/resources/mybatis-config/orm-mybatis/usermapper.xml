@@ -3,10 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="mapping.UsersMapper">
+<mapper namespace="com.neverlov.UserDao">
 	
 	<select id="getUser" resultType="com.neverlov.User">
-		select * from users
+		select * from t_users where id = #{id}
 	</select>
 	
 </mapper>

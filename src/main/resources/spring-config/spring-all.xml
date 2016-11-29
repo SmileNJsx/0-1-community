@@ -15,21 +15,13 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<mvc:annotation-driven>
-	</mvc:annotation-driven>
-	<mvc:default-servlet-handler/>
-	<mvc:resources location="/WEB-INF/html/" mapping="/html/**"></mvc:resources>
 	
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/html/"></property>
-		<property name="suffix" value=".html"></property>
-	</bean>
 	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:db.properties"></property>
 	</bean>
 	
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="clone">
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${driverClass}"></property>
 		<property name="url" value="${jdbcUrl}"></property>
 		<property name="username" value="${username}"></property>
@@ -44,10 +36,20 @@
 		<property name="mapperLocations" value="classpath:mybatis-config/*/*.xml"></property>
 	</bean>
 	
-	<bean id="userDao" class="com.neverlov.User">
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.neverlov"></property>
+	</bean>
+	
+	
+	<bean id="user" class="com.neverlov.User">
 	</bean>
 	
 	<bean id="indexController" class="com.neverlov.IndexController">
 	</bean>
+	
+	<bean id="man" class="com.neverlov.Man">
+	</bean>
+	
+	<bean id="userService" class="com.neverlov.UserService"></bean>
 	
 </beans>

@@ -12,7 +12,12 @@ public class Main {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config/spring-all.xml");
 
 		Man man = context.getBean(Man.class);
+		
 		man.say();
+		
+		UserService userService = context.getBean(UserService.class);
+		System.out.println(userService.getUser(1).toString());
+		
 		context.close();
 	}
 }

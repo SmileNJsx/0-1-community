@@ -60,4 +60,10 @@ public class User implements Serializable{
 		return serialVersionUID;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.getId()+this.getUsername();
+	}
+	
 }
