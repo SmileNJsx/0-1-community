@@ -14,8 +14,6 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-
-	
 	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:db.properties"></property>
@@ -37,19 +35,12 @@
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.neverlov"></property>
+		<property name="basePackage" value="com.neverlov.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 	
 	
 	<bean id="user" class="com.neverlov.User">
 	</bean>
-	
-	<bean id="indexController" class="com.neverlov.IndexController">
-	</bean>
-	
-	<bean id="man" class="com.neverlov.Man">
-	</bean>
-	
-	<bean id="userService" class="com.neverlov.UserService"></bean>
 	
 </beans>
