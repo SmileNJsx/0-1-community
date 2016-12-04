@@ -1,4 +1,4 @@
-package com.neverlov.control.Impl;
+package com.neverlov.control;
 
 
 import org.apache.shiro.SecurityUtils;
@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.neverlov.control.IUserControl;
-
 @Controller
-public class UserControlImpl implements IUserControl{
+public class UserControl {
 	
     @RequestMapping("/")
     public String hello() {
@@ -26,8 +24,6 @@ public class UserControlImpl implements IUserControl{
 		// TODO Auto-generated method stub
     	UsernamePasswordToken token = new UsernamePasswordToken(userId, password);
     	token.setRememberMe(true);
-    	System.out.println(String.valueOf("hi"+token.getCredentials()));
-    	
     	Subject subject = SecurityUtils.getSubject();
     	subject.login(token);
     	
@@ -36,12 +32,6 @@ public class UserControlImpl implements IUserControl{
     	} else {
     		return "none";
     	}
-    	
-	}
-
-	public String userinfo(String userId) {
-		// TODO Auto-generated method stub
-		return null;
 	}
     
 }

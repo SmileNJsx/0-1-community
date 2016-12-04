@@ -27,21 +27,14 @@ public class UserRealm extends AuthorizingRealm{
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		// TODO Auto-generated method stub
 		long userId = Long.parseLong(String.valueOf(token.getPrincipal()));
-		
 		String password = String.valueOf((char[]) token.getCredentials());
 		
-		System.out.println(password);
-		
 		User user = userService.getUser(userId);
-		
-		System.out.println(user.toString());
-		
+				
 		if(user.getPassword().equals(password)) {
-			System.out.println("hi");
 			return new SimpleAuthenticationInfo(userId,password,getName());
 		} else {
 			return null;
 		}
 	}
-
 }

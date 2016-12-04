@@ -1,10 +1,9 @@
 package com.neverlov;
 
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
+//import org.apache.ibatis.annotations.Param;
+//import org.springframework.stereotype.Component;
 
-@Component
 public interface UserDao {
 	
-	User getUser(@Param("id") long id);
+//	User getUser(@Param("id") long id);
 }

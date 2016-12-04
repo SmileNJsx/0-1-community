@@ -1,6 +1,6 @@
 package com.neverlov;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+//import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 

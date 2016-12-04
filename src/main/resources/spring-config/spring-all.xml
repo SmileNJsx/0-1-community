@@ -15,7 +15,7 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
-	<context:component-scan base-package="com.neverlov.control.Impl,com.neverlov.service.Impl">
+	<context:component-scan base-package="com.neverlov.control,com.neverlov.service.Impl">
 	</context:component-scan>
 	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -43,7 +43,7 @@
 	</bean>
 	
 	
-	<bean id="user" class="com.neverlov.User">
+	<bean id="user" class="com.neverlov.entity.User">
 	</bean>
 	
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
