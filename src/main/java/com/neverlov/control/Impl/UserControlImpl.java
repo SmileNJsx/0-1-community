@@ -1,20 +1,18 @@
 package com.neverlov.control.Impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neverlov.control.IUserControl;
-import com.neverlov.entity.User;
-import com.neverlov.service.Impl.UserServiceImpl;
 
 @Controller
 public class UserControlImpl implements IUserControl{
-
-	@Autowired
-    private UserServiceImpl userService;
 	
     @RequestMapping("/")
     public String hello() {
@@ -22,13 +20,20 @@ public class UserControlImpl implements IUserControl{
 		return "index";
 	}
 
-    @RequestMapping(value="/{userId}")
+    @RequestMapping(value="/{userId}/{password}")
     @ResponseBody
-	public String userinfo(@PathVariable String userId) {
+	public String userinfo(@PathVariable String userId, @PathVariable String password) {
 		// TODO Auto-generated method stub
-    	long id = Long.parseLong(userId);
-    	User user = userService.getUser(id);
-		return user.toString();
+    	UsernamePasswordToken token = new UsernamePasswordToken(userId, password);
+    	token.setRememberMe(true);
+    	Subject subject = SecurityUtils.getSubject();
+    	subject.login(token);
+    	return "index";
+	}
+
+	public String userinfo(String userId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
     
 }

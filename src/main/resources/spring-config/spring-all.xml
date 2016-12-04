@@ -43,4 +43,12 @@
 	<bean id="user" class="com.neverlov.User">
 	</bean>
 	
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+	</bean>
+	
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager"></property>
+		
+	</bean>
+	
 </beans>
