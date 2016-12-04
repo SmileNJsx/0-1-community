@@ -9,15 +9,21 @@ public class Main {
 	
 		
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config/spring-all.xml");
-
-		Man man = context.getBean(Man.class);
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config/spring-all.xml");
+//
+//		Man man = context.getBean(Man.class);
+//		
+//		man.say();
+//		
+//		UserService userService = context.getBean(UserService.class);
+//		System.out.println(userService.getUser(1).toString());
+//		
+//		context.close();
 		
-		man.say();
+		char[] a = {'a','b'};
 		
-		UserService userService = context.getBean(UserService.class);
-		System.out.println(userService.getUser(1).toString());
+		String s = String.valueOf(a);
 		
-		context.close();
+		System.out.println(s);
 	}
 }

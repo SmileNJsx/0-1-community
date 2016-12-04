@@ -26,9 +26,17 @@ public class UserControlImpl implements IUserControl{
 		// TODO Auto-generated method stub
     	UsernamePasswordToken token = new UsernamePasswordToken(userId, password);
     	token.setRememberMe(true);
+    	System.out.println(String.valueOf("hi"+token.getCredentials()));
+    	
     	Subject subject = SecurityUtils.getSubject();
     	subject.login(token);
-    	return "index";
+    	
+    	if(subject.isAuthenticated()) {
+    		return "index";
+    	} else {
+    		return "none";
+    	}
+    	
 	}
 
 	public String userinfo(String userId) {

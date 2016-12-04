@@ -15,6 +15,9 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
+	<context:component-scan base-package="com.neverlov.control.Impl,com.neverlov.service.Impl">
+	</context:component-scan>
+	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:db.properties"></property>
 	</bean>
@@ -44,11 +47,15 @@
 	</bean>
 	
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="userRealm"></property>
 	</bean>
 	
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager"></property>
+		 <property name="unauthorizedUrl" value="/"/>
 		
 	</bean>
 	
+	<bean id="userRealm" class="com.neverlov.shiro.realm.UserRealm">
+	</bean>
 </beans>
