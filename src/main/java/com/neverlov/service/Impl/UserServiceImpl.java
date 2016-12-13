@@ -12,10 +12,10 @@ public class UserServiceImpl implements IUserService{
 
 	@Autowired
 	private IUserDao userDao;
-	
-	public User getUser(long id) {
+
+	public User getUserById(long id) {
 		// TODO Auto-generated method stub
-		return userDao.getUser(id);
+		return userDao.getUserById(id);
 	}
 
 }

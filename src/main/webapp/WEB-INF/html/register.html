@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>zhuce</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<form action="#" method="#">  
+	<table>
+		<tr>
+			<td>
+				 用户名:
+			</td>
+			<td>
+				<input type="text" name="username">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				密码:
+			</td>
+			<td>
+				<input type="password" name="password">
+			</td>
+		</tr><tr>
+			<td>
+				邮箱:
+			</td>
+			<td>
+				<input type="email" name="email">
+			</td>
+		</tr><tr>
+			<td>
+				手机号:
+			</td>
+			<td>
+				<input type="number" name="phone">
+			</td>
+		</tr><tr>
+			<td>
+				验证码：
+			</td>
+			<td>
+				<input type="text" name="telCode">
+			</td>
+			<td><input type="button" id="btn" value="免费获取验证码"></td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" id="submit" value="提交"/>  
+			</td>
+			<td>
+				<a href="denglujiemian.html">返回登陆界面</a>
+			</td>
+		</tr>
+	</table>
+
+</form>
+</body>
+<script type="text/javascript">  
+var wait=6;  
+function time(o) {  
+        if (wait == 0) {  
+            o.removeAttribute("disabled");            
+            o.value="免费获取验证码";  
+            wait = 6;  
+        } else {  
+            o.setAttribute("disabled", true);  
+            o.value="重新发送(" + wait + ")";  
+            wait--;  
+            setTimeout(function() {  
+                time(o)  
+            },  
+            1000)  
+        }  
+    }  
+document.getElementById("btn").onclick=function(){time(this);}  
+</script>  
+</html>

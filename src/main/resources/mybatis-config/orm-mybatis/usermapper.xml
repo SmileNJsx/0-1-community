@@ -5,8 +5,19 @@
   
 <mapper namespace="com.neverlov.dao.IUserDao">
 	
-	<select id="getUser" resultType="com.neverlov.entity.User">
+	<select id="getUserById" resultType="com.neverlov.entity.User">
 		select * from t_users where id = #{id}
 	</select>
 	
+	<select id="getUserByUserEmail" resultType="com.neverlov.entity.User">
+		select * from t_user where useremail = #{useremail}
+	</select>
+	
+	<select id="getUserByPhoneNumber" resultType="com.neverlov.entity.User">
+		select * from t_user where phonenumber = #{phonenumber}
+	</select>
+	
+	<insert id="insertUser" parameterType="com.neverlov.entity.User">
+		insert into t_user(username,phonenumber,useremail,password) values(#{username},#{phonenumber},#{useremail},#{password})
+	</insert>
 </mapper>

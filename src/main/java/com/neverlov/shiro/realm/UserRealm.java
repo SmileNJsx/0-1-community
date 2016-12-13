@@ -29,7 +29,7 @@ public class UserRealm extends AuthorizingRealm{
 		long userId = Long.parseLong(String.valueOf(token.getPrincipal()));
 		String password = String.valueOf((char[]) token.getCredentials());
 		
-		User user = userService.getUser(userId);
+		User user = userService.getUserById(userId);
 				
 		if(user.getPassword().equals(password)) {
 			return new SimpleAuthenticationInfo(userId,password,getName());

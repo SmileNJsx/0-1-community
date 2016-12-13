@@ -8,6 +8,8 @@ public class User {
 	
 	private long id;
 	private String username;
+	private String phonenumber;
+	private String useremail;
 	private String password;
 	private Timestamp add_time;
 	private Timestamp modify_time;
@@ -28,6 +30,22 @@ public class User {
 		this.username = username;
 	}
 	
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+
+	public String getUseremail() {
+		return useremail;
+	}
+
+	public void setUseremail(String useremail) {
+		this.useremail = useremail;
+	}
+
 	public String getPassword() {
 		return password;
 	}
